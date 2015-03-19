@@ -7,9 +7,10 @@
 makeCacheMatrix <- function(x = matrix()) {
 
 }
-    m <- NULL
+    m <- NULL    # m is the inverse matrix of x
     set <- function(y) {
-      x <<- y
+      x <<- y   #use <<- to set the value of x and m matrix which will be stored in the parent frame
+                #and can be seen by cacheSolve function
       m <<- NULL
     }
     get <- function() x
@@ -26,6 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
  ## returned by makeCacheMatrix above. If the inverse has 
  #  already been calculated (and the matrix has not changed),
  #  then cacheSolve should retrieve the inverse from the cache.
+ # Otherwise, it will compute the inverse matrix and set to m
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
